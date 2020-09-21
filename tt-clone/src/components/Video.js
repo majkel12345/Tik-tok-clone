@@ -23,7 +23,11 @@ const Video = () => {
             onClick={onVideoPress}
             ref={videoRef}
             />
-            <VideoFooter />
+            <VideoFooter 
+            channel='majk'
+            description='jaja'
+            song='daj  kamienia'
+            />
             
             {/* <VidoeSidebar />
             <VideoFooter /> */}
