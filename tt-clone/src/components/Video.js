@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
+import ReactPlayer from 'react-player'
 import '../styles/Video.css'
+import VideoFooter from './VideoFooter'
 
 const Video = () => {
 
@@ -12,16 +14,16 @@ const Video = () => {
     return(
         <div className='video'> 
             
-            <video 
+            <ReactPlayer 
+            url='https://www.youtube.com/watch?v=kyoOPy4_GPs'
             className='videoPlayer' 
-            controls
             loop
+            width = '100%'
+            height = '100%'
             onClick={onVideoPress}
             ref={videoRef}
-            >
-                <source src="./movie.mp4" type="video/mp4"/>
-                
-            </video>
+            />
+            <VideoFooter />
             
             {/* <VidoeSidebar />
             <VideoFooter /> */}
