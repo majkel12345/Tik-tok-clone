@@ -2,8 +2,9 @@ import React, { useRef } from 'react'
 import ReactPlayer from 'react-player'
 import '../styles/Video.css'
 import VideoFooter from './VideoFooter'
+import VideoSidebar from './VidoeSidebar'
 
-const Video = () => {
+const Video = ({likes, messages, shares, channel, description, song, url}) => {
 
 
     const videoRef = useRef(null)
@@ -15,7 +16,7 @@ const Video = () => {
         <div className='video'> 
             
             <ReactPlayer 
-            url='https://www.youtube.com/watch?v=kyoOPy4_GPs'
+            url={url}
             className='videoPlayer' 
             loop
             width = '100%'
@@ -24,9 +25,15 @@ const Video = () => {
             ref={videoRef}
             />
             <VideoFooter 
-            channel='majk'
-            description='jaja'
-            song='daj  kamienia'
+            channel={channel}
+            description={description}
+            song={song}
+            />
+
+            <VideoSidebar 
+            likes = {likes}
+            messages = {messages}
+            shares = {shares}
             />
             
             {/* <VidoeSidebar />

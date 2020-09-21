@@ -4,7 +4,7 @@
     bottom: 150px;
     color: white;
     display: flex;
-    margin:0 40px;
+    margin:0 30px;
     
 }
 
@@ -34,7 +34,6 @@
 
 .videoFooter__icon {
     position: absolute;
-
 }
 
 @keyframes spinRecord {
