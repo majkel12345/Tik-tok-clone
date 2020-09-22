@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Video from './components/Video'
-import VideoSidebar from './components/VidoeSidebar';
 import DATABASE_URL from './index'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function App() {
 
   const [videos, setVideos] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch(`${DATABASE_URL}/.json`)
@@ -23,6 +24,7 @@ function App() {
           })
       : []
       setVideos(arrayVideos)
+      setLoading(false)
     }) 
   },[])
   
@@ -31,7 +33,10 @@ function App() {
   return (
     <div className="app">
       <div className='app__videos'>
-        {videos.map((video)=> {
+        {loading ?
+        <CircularProgress />
+        :
+        videos.map((video)=> {
           return <Video
           key ={video.id} 
           likes = {video.likes}
