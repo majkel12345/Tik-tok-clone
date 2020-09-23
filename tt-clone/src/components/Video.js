@@ -1,36 +1,45 @@
-import React, {useRef, useState} from 'react'
-import ReactPlayer from 'react-player'
+import React, {useState, useRef, useEffect} from 'react'
 import '../styles/Video.css'
 import VideoFooter from './VideoFooter'
 import VideoSidebar from './VidoeSidebar'
 
-const Video = ({likes, messages, shares, channel, description, song, url}) => {
+const Video = ({likes, messages, shares, channel, description, song, url, onscroll}) => {
 
-    const [playing, setPlaying] = useState(false);
-    const videoRef = useRef(null);
+    const [play, setPlay] = useState(false);
+    const myRef = useRef(null);
+    const [offset, setOffset] = useState(0); 
+
     const onVideoPress = () => {
-        if(playing) {
-            videoRef.current.pause();
-            setPlaying(false);
-        } else {
-            videoRef.current.play();
-            setPlaying(true)
+        if(!play) {
+            setPlay(true)
+            myRef.current.play()
+        }
+        
+        if(play) {
+            setPlay(false)
+            myRef.current.pause()
         }
     }
 
+
+    
+
     return(
-        <div className='video'> 
-            
-            <ReactPlayer 
-            url={url}
+    
+        <div className='video'>         
+            <video 
             className='videoPlayer' 
             loop
-            controls
+            playing = {false}
+            ref={myRef}
             width = '100%'
             height = '100%'
             onClick={onVideoPress}
-            ref={videoRef}
-            />
+            >
+                <source src={url}></source>
+
+            </video>
+            
             <VideoFooter 
             channel={channel}
             description={description}
