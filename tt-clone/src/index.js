@@ -8,13 +8,14 @@ import firebase from 'firebase'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDj5zbZ4CaOz8Z33aQyuBozG3pfA2Cvg88",
-  authDomain: "tik-tok-clone-26a1a.firebaseapp.com",
-  databaseURL: "https://tik-tok-clone-26a1a.firebaseio.com",
-  projectId: "tik-tok-clone-26a1a",
-  storageBucket: "tik-tok-clone-26a1a.appspot.com",
-  messagingSenderId: "376846347286",
-  appId: "1:376846347286:web:acf77b63d4c1c613749937"
+  apiKey: "AIzaSyBca0y3-9bePPLCDKbk1wrPnP_HWmqbyrM",
+    authDomain: "tik-tok-clone-5bb55.firebaseapp.com",
+    databaseURL: "https://tik-tok-clone-5bb55.firebaseio.com",
+    projectId: "tik-tok-clone-5bb55",
+    storageBucket: "tik-tok-clone-5bb55.appspot.com",
+    messagingSenderId: "263919437903",
+    appId: "1:263919437903:web:e7bf633a5c6eebf634c23a"
+
 };
 
 const DATABASE_URL = firebaseConfig.databaseURL;

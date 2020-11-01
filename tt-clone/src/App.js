@@ -9,15 +9,12 @@ function App() {
   const [videos, setVideos] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const handleOnScroll = (e) => {
-    let element = e.target
-    console.log(element.scrollTop)
-  }
 
   useEffect(() => {
     fetch(`${DATABASE_URL}/.json`)
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       const arrayVideos = data
       ? Object
           .keys(data)
@@ -31,15 +28,13 @@ function App() {
       setVideos(arrayVideos)
       setLoading(false)
     }) 
-  },[])
+  },[videos])
   
   
 
   return (
     <div className="app">
-      <div className='app__videos'
-      onScroll={handleOnScroll}
-      >
+      <div className='app__videos'>
         {loading ?
         <CircularProgress />
         :
